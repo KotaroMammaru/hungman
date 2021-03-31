@@ -10,6 +10,11 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 import os
+import urllib.request
+import sys
+import json
+import scrape as sc
+from argparse import ArgumentParser
 
 app = Flask(__name__)
 
@@ -44,10 +49,14 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    if event == 'ダウ':
+        result = sc.get_movement()
+    else:
+        result = 'それは対応していません'
     line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text))
-
+    event.reply_token,
+    TextSendMessage(text=result)
+    )
 
 if __name__ == "__main__":
 #    app.run()
