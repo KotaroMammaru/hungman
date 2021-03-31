@@ -21,4 +21,5 @@ def get_movement():
             datas.append(data)
 
         text = '現在のダウ平均株価は{}円です。\n{}の変化が起きました。'
+        
         return text.format(datas[1][0], datas[1][1])

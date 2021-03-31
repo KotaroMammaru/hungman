@@ -9,10 +9,8 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
+
 import os
-import urllib.request
-import sys
-import json
 import scrape as sc
 from argparse import ArgumentParser
 
